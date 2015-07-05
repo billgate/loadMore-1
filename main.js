@@ -15,6 +15,7 @@ loadmore.success = function(response) {
 	//this.stopListner(); // removes the scroll event
 }
 
+// error call back
 loadmore.error = function(response) {
 
 }

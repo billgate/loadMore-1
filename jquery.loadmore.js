@@ -39,27 +39,19 @@ Loadmore.prototype.fetch = function() {
     contentClass = self.options.contentClass;
 
   self.$element.find('.'+ contentClass).append(self.$loader);
-
-  setTimeout(function() {
-    self.options.page++;
-    self.addListeners();
-    self.$loader.remove();
-    self.success('response');
-  }, 1000)
-
-  // $.ajax({
-  //   method: 'GET', 
-  //   url: url,
-  //   success: function(response) {
-  //     self.options.page++;
-  //     self.addListeners();
-  //     self.$loader.remove();
-  //     self.options.success('response');
-  //   },
-  //   error: function(response) {
-  //     self.options.error(response);
-  //   }
-  // })
+  $.ajax({
+    method: 'GET', 
+    url: url,
+    success: function(response) {
+      self.options.page++;
+      self.addListeners();
+      self.$loader.remove();
+      self.success('response');
+    },
+    error: function(response) {
+      self.error(response);
+    }
+  })
 } 
 
 
