@@ -46,7 +46,7 @@ Loadmore.prototype.fetch = function() {
       self.options.page++;
       self.addListeners();
       self.$loader.remove();
-      self.success('response');
+      self.success(response);
     },
     error: function(response) {
       self.error(response);
